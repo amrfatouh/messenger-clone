@@ -5,6 +5,7 @@ import { db } from "./firebase";
 
 import InputForm from "./InputForm";
 import MessagesContainer from "./MessagesContainer";
+import ChangeName from "./ChangeName";
 
 function App() {
   let [messages, setMessages] = useState([]);
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="test"></div>
       <img
         className="my-3"
         src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=40&h=40"
@@ -43,6 +45,8 @@ function App() {
 
       <InputForm username={username} />
       <MessagesContainer username={username} messages={messages} />
+
+      <ChangeName setUsername={setUsername} />
     </div>
   );
 }

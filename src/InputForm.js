@@ -35,6 +35,7 @@ function InputForm({ username }) {
       <Row>
         <Col xs={{ span: 5, offset: 3 }}>
           <Form.Control
+            className="main-input"
             autoFocus
             type="text"
             placeholder="type your message"
