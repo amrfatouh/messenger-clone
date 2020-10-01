@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
 import { db } from "./firebase";
 import firebase from "firebase";
 import { Form, Button, Row, Col, Card } from "react-bootstrap";
+import {
+  faCoffee,
+  faThumbsUp,
+  faPaperPlane,
+} from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   let [messages, setMessages] = useState([]);
@@ -63,7 +69,7 @@ function App() {
         }}
       >
         <Row>
-          <Col xs={{ span: 6, offset: 2 }}>
+          <Col xs={{ span: 5, offset: 3 }}>
             <Form.Control
               autoFocus
               type="text"
@@ -72,30 +78,42 @@ function App() {
               value={inputText}
             />
           </Col>
-          <Col xs={2}>
-            <Button className="d-block w-100" variant="primary" type="submit">
-              Send
+          <Col xs={1}>
+            <Button
+              className="d-block w-100"
+              variant="outline-primary"
+              type="submit"
+              style={{ border: "none" }}
+            >
+              <FontAwesomeIcon
+                icon={inputText ? faPaperPlane : faThumbsUp}
+                size="2x"
+              />
             </Button>
           </Col>
         </Row>
       </Form>
-      <div className="messages-container">
-        {messages.map((message) => {
-          const isCurrentUser = username === message.username;
-          return (
-            <Card
-              key={message.id}
-              className={`mb-2 w-75 ${isCurrentUser ? "ml-auto" : null}`}
-              bg={isCurrentUser ? "primary" : "light"}
-              text={isCurrentUser ? "white" : "dark"}
-            >
-              <Card.Body>
-                {!isCurrentUser && `${message.username}: `}
-                {message.messageText}
-              </Card.Body>
-            </Card>
-          );
-        })}
+      <div className="container-fluid">
+        <div className="row">
+          <div className="messages-container offset-xs-3 col-xs-6">
+            {messages.map((message) => {
+              const isCurrentUser = username === message.username;
+              return (
+                <Card
+                  key={message.id}
+                  className={`mb-2 w-75 ${isCurrentUser ? "ml-auto" : null}`}
+                  bg={isCurrentUser ? "primary" : "light"}
+                  text={isCurrentUser ? "white" : "dark"}
+                >
+                  <Card.Body>
+                    {!isCurrentUser && `${message.username}: `}
+                    {message.messageText}
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
