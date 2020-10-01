@@ -6,7 +6,7 @@ body {
 .messages-container {
   overflow: auto;
   width: 50%;
-  height: 400px;
+  height: 380px;
   border: 1px solid #ccc;
   margin: auto;
   padding: 15px;

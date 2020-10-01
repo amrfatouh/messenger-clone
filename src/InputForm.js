@@ -27,6 +27,9 @@ function InputForm({ username }) {
         left: "50%",
         transform: "translateX(-50%)",
         width: "100%",
+        zIndex: "1000",
+        backgroundColor: "#fff",
+        padding: "15px",
       }}
     >
       <Row>
