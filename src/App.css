@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+  margin: 5px;
+}
+
+.messages-container {
+  overflow: auto;
+  width: 50%;
+  height: 400px;
+  border: 1px solid #ccc;
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+}
